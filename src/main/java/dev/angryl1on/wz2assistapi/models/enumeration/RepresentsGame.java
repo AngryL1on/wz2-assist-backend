@@ -1,5 +1,7 @@
 package dev.angryl1on.wz2assistapi.models.enumeration;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 /**
  * A list representing different versions of the game.
  */
@@ -35,7 +37,8 @@ public enum RepresentsGame {
      *
      * @return the name of the game.
      */
-    public String getCategory() {
+    @JsonValue
+    public String getName() {
         return gameName;
     }
 }
