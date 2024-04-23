@@ -4,12 +4,15 @@ import dev.angryl1on.wz2assistapi.models.enumeration.GunCategory;
 import dev.angryl1on.wz2assistapi.models.enumeration.RepresentsGame;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 /**
  * Represents a gun entity in the application.
  */
 @Entity
-@Table(name = "gun")
+@Table(name = "gun", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "name")
+})
 public class Gun extends Base {
     private String name;
     private GunCategory type;

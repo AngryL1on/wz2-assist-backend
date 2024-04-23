@@ -1,10 +1,9 @@
 package dev.angryl1on.wz2assistapi.models;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
-import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.util.UUID;
 
@@ -13,8 +12,7 @@ public abstract class Base {
     private UUID id;
 
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2")
+    @UuidGenerator
     @Column(name = "id")
     public UUID getId() {
         return id;

@@ -1,5 +1,7 @@
 package dev.angryl1on.wz2assistapi.models.enumeration;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 /**
  * An enumeration representing different categories of firearms.
  */
@@ -43,6 +45,7 @@ public enum GunCategory {
      *
      * @return the name of the gun category.
      */
+    @JsonValue
     public String getCategory() {
         return category;
     }
