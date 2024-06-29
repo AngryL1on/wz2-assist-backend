@@ -21,7 +21,7 @@ public class Gun extends Base {
     /**
      * Protected constructor for JPA.
      */
-    protected Gun() {}
+    protected Gun() { /* do nothing */ }
 
     /**
      * Creates a new Gun with the specified name, type, and game representation.

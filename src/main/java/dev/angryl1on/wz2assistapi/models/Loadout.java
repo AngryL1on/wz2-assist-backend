@@ -1,0 +1,105 @@
+package dev.angryl1on.wz2assistapi.models;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+
+import java.util.List;
+
+/**
+ * Represents a loadout entity in the application.
+ */
+@Entity
+public class Loadout extends Base {
+    @OneToMany(mappedBy = "loadout")
+    private List<LoadoutGun> loadoutGuns;
+    @OneToMany(mappedBy = "loadout")
+    private List<Perks> perks;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Users user;
+    private String perks1;
+    private String guns;
+    private String description;
+    private String date;
+    private String updatedAt;
+    private String enabled;
+
+    /**
+     * Protected constructor for JPA.
+     */
+    protected Loadout() { /* do nothing */ }
+
+    public List<LoadoutGun> getLoadoutGuns() {
+        return loadoutGuns;
+    }
+
+    public void setLoadoutGuns(List<LoadoutGun> loadoutGuns) {
+        this.loadoutGuns = loadoutGuns;
+    }
+
+    public List<Perks> getPerks() {
+        return perks;
+    }
+
+    public void setPerks(List<Perks> perks) {
+        this.perks = perks;
+    }
+
+    public Users getUser() {
+        return user;
+    }
+
+    public void setUser(Users user) {
+        this.user = user;
+    }
+
+    public String getPerks1() {
+        return perks1;
+    }
+
+    public void setPerks1(String perks1) {
+        this.perks1 = perks1;
+    }
+
+    public String getGuns() {
+        return guns;
+    }
+
+    public void setGuns(String guns) {
+        this.guns = guns;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public String getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(String enabled) {
+        this.enabled = enabled;
+    }
+}
