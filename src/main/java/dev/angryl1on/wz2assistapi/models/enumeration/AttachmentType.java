@@ -6,10 +6,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * An enumeration representing different types of attachments.
  */
 public enum AttachmentType {
-    AMMUNITION_TYPE(1, "Amunition type"),
-    BARREL(2, "Barrel"),
-    BOLT(3, "Bolt"),
-    COMB(4, "Comb"),
+    AMMUNITION_TYPE(0, "Amunition type"),
+    BARREL(1, "Barrel"),
+    BOLT(2, "Bolt"),
+    COMB(3, "Comb"),
+    CONVERSION_KIT(4, "Conversion kit"),
     GUARD(5, "Guard"),
     LAZER(6, "Lazer"),
     MAGAZINE(7, "Magazine"),
