@@ -9,17 +9,25 @@ import jakarta.persistence.ManyToOne;
  */
 @Entity
 public class Perks extends Base {
-    @ManyToOne
-    @JoinColumn(name = "loadout_id")
     private Loadout loadout;
     private String name;
     private String description;
-    private String slot;
+    private String slot;    // TODO: REFACTOR ON ENUM!!!
 
     /**
      * Protected constructor for JPA.
      */
     protected Perks() { /* do nothing */ }
+
+    @ManyToOne
+    @JoinColumn(name = "loadout_id")
+    public Loadout getLoadout() {
+        return loadout;
+    }
+
+    public void setLoadout(Loadout loadout) {
+        this.loadout = loadout;
+    }
 
     public String getName() {
         return name;

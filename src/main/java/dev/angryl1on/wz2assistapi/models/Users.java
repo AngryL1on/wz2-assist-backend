@@ -1,5 +1,6 @@
 package dev.angryl1on.wz2assistapi.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 
@@ -10,30 +11,29 @@ import java.util.List;
  */
 @Entity
 public class Users extends Base {
-    @OneToMany(mappedBy = "user")
-    private List<Loadout> loadOuts;
+    private List<Loadout> loadouts;
     private String email;
+    private String password;
     private String name;
     private String nickname;
     private String description;
-    private String visibility;
     private String avatar;
-    private String password;
-    private int followers;
 
     /**
      * Protected constructor for JPA.
      */
     protected Users() { /* do nothing */ }
 
-    public List<Loadout> getLoadOuts() {
-        return loadOuts;
+    @OneToMany(mappedBy = "user")
+    public List<Loadout> getLoadouts() {
+        return loadouts;
     }
 
-    public void setLoadOuts(List<Loadout> loadOuts) {
-        this.loadOuts = loadOuts;
+    public void setLoadouts(List<Loadout> loadOuts) {
+        this.loadouts = loadOuts;
     }
 
+    @Column(unique = true)
     public String getEmail() {
         return email;
     }
@@ -50,6 +50,7 @@ public class Users extends Base {
         this.name = name;
     }
 
+    @Column(unique = true)
     public String getNickname() {
         return nickname;
     }
@@ -66,14 +67,6 @@ public class Users extends Base {
         this.description = description;
     }
 
-    public String getVisibility() {
-        return visibility;
-    }
-
-    public void setVisibility(String visibility) {
-        this.visibility = visibility;
-    }
-
     public String getAvatar() {
         return avatar;
     }
@@ -88,13 +81,5 @@ public class Users extends Base {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public int getFollowers() {
-        return followers;
-    }
-
-    public void setFollowers(int folowers) {
-        this.followers = folowers;
     }
 }

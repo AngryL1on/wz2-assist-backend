@@ -9,8 +9,7 @@ import jakarta.persistence.ManyToOne;
  */
 @Entity
 public class Camo extends Base {
-    @ManyToOne
-    @JoinColumn(name = "gun_id")
+
     private Gun gun;
     private String title;
     private String description;
@@ -39,6 +38,8 @@ public class Camo extends Base {
         this.status = status;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "gun_id")
     public Gun getGun() {
         return gun;
     }

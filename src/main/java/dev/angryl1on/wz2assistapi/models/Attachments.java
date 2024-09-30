@@ -10,24 +10,43 @@ import java.util.List;
  */
 @Entity
 public class Attachments extends Base {
-    @ManyToOne
-    @JoinColumn(name = "loadoutGun_id")
-    private LoadoutGun loadoutGun;
+
     private String name;
     private AttachmentType type;
-    @OneToOne
     private Gun gun;
     private Integer levelsToOpen;
-    @ElementCollection
     private List<String> advantages;
-    @ElementCollection
     private List<String> disadvantages;
+    private LoadoutGun loadoutGun;
 
     /**
      * Protected constructor for JPA.
      */
     public Attachments() { /* do nothing */ }
 
+    /**
+     *
+     *
+     * @param name
+     * @param type
+     * @param gun
+     * @param levelsToOpen
+     * @param advantages
+     * @param disadvantages
+     * @param loadoutGun
+     */
+    public Attachments(String name, AttachmentType type, Gun gun, Integer levelsToOpen, List<String> advantages, List<String> disadvantages, LoadoutGun loadoutGun) {
+        this.name = name;
+        this.type = type;
+        this.gun = gun;
+        this.levelsToOpen = levelsToOpen;
+        this.advantages = advantages;
+        this.disadvantages = disadvantages;
+        this.loadoutGun = loadoutGun;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "loadoutGun_id")
     public LoadoutGun getLoadoutGun() {
         return loadoutGun;
     }
@@ -44,6 +63,7 @@ public class Attachments extends Base {
         this.name = name;
     }
 
+    @OneToOne
     public Gun getGun() {
         return gun;
     }
@@ -60,6 +80,7 @@ public class Attachments extends Base {
         this.levelsToOpen = levelsToOpen;
     }
 
+    @ElementCollection
     public List<String> getAdvantages() {
         return advantages;
     }
@@ -68,6 +89,7 @@ public class Attachments extends Base {
         this.advantages = advantages;
     }
 
+    @ElementCollection
     public List<String> getDisadvantages() {
         return disadvantages;
     }
@@ -82,10 +104,5 @@ public class Attachments extends Base {
 
     public void setType(AttachmentType type) {
         this.type = type;
-    }
-
-    public static Attachments createAttachment() {
-        Attachments attachment = new Attachments();
-        return attachment;
     }
 }

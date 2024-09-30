@@ -2,6 +2,7 @@ package dev.angryl1on.wz2assistapi.models;
 
 import dev.angryl1on.wz2assistapi.models.enumeration.GunCategory;
 import dev.angryl1on.wz2assistapi.models.enumeration.RepresentsGame;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
@@ -10,9 +11,7 @@ import jakarta.persistence.UniqueConstraint;
  * Represents a gun entity in the application.
  */
 @Entity
-@Table(name = "gun", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "name")
-})
+@Table(name = "gun")
 public class Gun extends Base {
     private String name;
     private GunCategory type;
@@ -35,7 +34,7 @@ public class Gun extends Base {
         this.type = type;
         this.gameRepresents = gameRepresents;
     }
-
+    @Column(unique = true)
     public String getName() {
         return name;
     }
